@@ -1,17 +1,21 @@
-function calculatedGrade(points){
-    if(points >= 0 && points <= 100){
-        if (points > 79){
-            return "A"
-        }else if (points >= 60 && points <= 79){
-        return "B"
-       }else if (points >= 50 && points <= 59){
-        return "C"
-       }else if (points >= 40 && points <= 49){
-        return "D"
-       }else {return "E"}
-    }else{
-        return "invalid marks"
+// function to calculate speed
+function checkSpeed(Speed){
+    const SpeedLimit = 70;
+    const demeritPoint = 5;
+    const points = 12;
+    let demeritPoints = 0;
+//if car speed is below or equal to speed limit
+    if (Speed <= SpeedLimit) {
+        return "Ok";
+// if the car speed is above the speed limit 
+    } else {
+    const excessSpeed = Speed - SpeedLimit;
+    demeritPoints = Math.floor(excessSpeed /demeritPoint);
     }
-    let points = parseInt(60)//input your marks here
-    let grid = calculateGrade(points)
-    console.log(points)}
+//if demerit points are above 12 return license suspended to the user
+    if (demeritPoints > points) {
+    return "License Suspended";
+    } else {
+    return "Points:" + demeritPoints;
+    }
+    }
